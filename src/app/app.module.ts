@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { UsersComponent } from './users/users.component';
+import { UsersReactiveComponent } from './users-reactive/users-reactive.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersComponent,
+    UsersReactiveComponent
   ],
   imports: [
     BrowserModule,
