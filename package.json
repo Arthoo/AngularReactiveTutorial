@@ -34,6 +34,10 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "msw": "^0.43.1",
     "typescript": "~4.2.3"
+  },
+  "msw": {
+    "workerDirectory": "src"
   }
 }
