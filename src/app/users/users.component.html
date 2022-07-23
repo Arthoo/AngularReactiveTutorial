@@ -1,5 +1,20 @@
-
-<div *ngFor="let user of users">
-  {{ user.first_name }}
+<div *ngIf="users">
+  <input  placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="loadUsers(true)"/>
+  <select [(ngModel)]="selectedPageSize" (ngModelChange)="loadUsers(true)">
+    <option *ngFor="let pageSize of pageSizes" [value]="pageSize" [selected]="pageSize === selectedPageSize">{{ pageSize }}</option>
+  </select>
+  <select [(ngModel)]="selectedPage" (ngModelChange)="loadUsers(false)">
+    <option *ngFor="let page of pages" [value]="page" [selected]="page === selectedPage">{{ page }}</option>
+  </select>
 </div>
+
+<ng-container *ngIf="loading; else userList">loading users...</ng-container>
+
+<ng-template #userList>
+  <div *ngFor="let user of users">
+    {{ user.first_name }} |
+    {{ user.last_name }} |
+    {{ user.email }}
+  </div>
+</ng-template>
 
