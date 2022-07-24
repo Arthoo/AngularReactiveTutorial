@@ -1,1 +1,24 @@
-<p>users-reactive works!</p>
+<ng-container *ngIf="state$ | async as state">
+
+  <div *ngIf="state.users">
+    <input  placeholder="Search" [ngModel]="state.searchText" (ngModelChange)="searchTextChange$.next($event)"/>
+    <select (ngModelChange)="pageSizeChange$.next($event)">
+      <option *ngFor="let pageSize of pageSizes" [value]="pageSize" [selected]="pageSize === state.selectedPageSize">{{ pageSize }}</option>
+    </select>
+    <select (ngModelChange)="pageChange$.next($event)">
+      <option *ngFor="let page of state.pages" [value]="page" [selected]="page === state.selectedPage">{{ page }}</option>
+    </select>
+  </div>
+
+  <ng-container *ngIf="state.loading; else userList">loading users...</ng-container>
+
+  <ng-template #userList>
+    <div *ngFor="let user of state.users">
+      {{ user.first_name }} |
+      {{ user.last_name }} |
+      {{ user.email }}
+    </div>
+  </ng-template>
+
+</ng-container>
+

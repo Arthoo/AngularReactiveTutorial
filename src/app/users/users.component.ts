@@ -14,7 +14,7 @@ export class UsersComponent implements OnInit {
   pages = [0];
   selectedPage = 0;
 
-  loading = true;
+  loading = false;
   searchText = '';
   users: User[] | null = null;
 

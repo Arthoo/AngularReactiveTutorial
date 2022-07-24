@@ -1,0 +1,7 @@
+:host {
+  display: flex;
+  flex-basis: row;
+  gap: 50px;
+  margin: 10vh 10vw;
+  justify-content: center;
+}
